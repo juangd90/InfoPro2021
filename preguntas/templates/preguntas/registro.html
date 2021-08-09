@@ -1,0 +1,20 @@
+{% extends "preguntas/layout.html" %}
+<div class="container" >
+{% block body %}
+<div>
+    <form method="POST">
+{% csrf_token %}
+
+{% for campo in form %}
+<p>
+    {{ campo.label_tag }}<br>
+    {{campo}}
+</p>
+
+{% endfor %}
+<button type="submit">Confirmar registro</button>
+</form>
+</div>
+
+{% endblock %}
+</div>

@@ -1,0 +1,18 @@
+{% extends "preguntas/layout.html" %}
+{% block body %}
+<div class="container">
+{% if form.errors %}
+<p>Error de login</p>
+{% endif %}
+
+<form method="POST" action="{% url 'Preguntas:login' %}">
+    {% csrf_token %}
+    <p><input type="text" name="username"></p>
+    <p><input type="password" name="password"  ></p>
+    <input class="btn btn-success" type="submit" value="Ingresar">
+    
+    <input type="hidden" name="next" value="{{next}}"/>
+</form>
+
+</div>
+{% endblock %}
