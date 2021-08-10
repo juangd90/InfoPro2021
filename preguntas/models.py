@@ -34,3 +34,7 @@ class Jugador(models.Model):
 class Juego(models.Model):
     jugador=Jugador
     preguntas=models.ManyToManyField(Pregunta,blank=True)              
+
+   #en la clase pregunta solamente lo relacionado a las preguntas
+   #con la clase jugador podemos manejar la info basica del mismo, y guardar su puntaje
+   # Hay que analizar si es necesaria la clase juego 

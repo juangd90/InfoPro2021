@@ -55,7 +55,7 @@ ROOT_URLCONF = 'InfoPro2021.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ["./INFOPRO2021/templates/preguntas"],
+        'DIRS': ["./INFOPRO2021/preguntas/templates/preguntas"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
