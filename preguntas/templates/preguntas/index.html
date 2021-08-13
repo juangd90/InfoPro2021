@@ -1,12 +1,16 @@
-{% extends "preguntas/layout.html" %}
+{% extends "preguntas/layout.html"%}
 {% block body %}
 <div class="container">
 <h1>Probando index</h1>
 <h2>
     <p>
         Aca se debe explicar al usuario en que consiste el juego, se supone que al ver esta pantalla,el usuario ya va a estar logueado
-        Queda pendiente realizar la logica del login y armar el maquetado de la pagina. Tambien armar el logout y direccionar al usuario a una pagina X (podria ser el index)
+        
+        
     </p>
+    <p>
+        <a href="{% url 'jugar'%}"">Vamos a jugar!</a>
+    </p> 
 </h2>
 
 </div>

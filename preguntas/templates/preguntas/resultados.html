@@ -1,0 +1,11 @@
+{% extends "preguntas/layout.html" %}
+{% block body %}
+<div class="container" >
+   <h2>
+    Su puntaje es: {{puntaje}} <br>
+    
+   </h2>
+   <a href="{% url 'index' %}">Volver al inicio</a>
+</div>
+
+{% endblock %}

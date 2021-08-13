@@ -5,12 +5,20 @@
 
 <form method="POST" action="{% url 'login' %}">
     {% csrf_token %}
-    <p><input type="text" name="username"></p>
+    <div class="mb-3">
+        <label for="username">Usuario</label>
+    <p><input type="text"  name="username"></p>
+    <label for="password">Contraseña</label>
     <p><input type="password" name="password"  ></p>
     <input class="btn btn-success" type="submit" value="Ingresar">
     
     <input type="hidden" name="next" value="{{next}}"/>
+    </div>
 </form>
+<h3>
+    ¿No estas registrado?
+    <a href="{% url 'registro' %}">Registrarse</a>
+</h3>
 
 </div>
 {% endblock %}
