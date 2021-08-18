@@ -13,6 +13,16 @@
     <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
         <div class="container-fluid">
           <span class="navbar-brand mb-0 h1">InfoPro2021-Bienvenid@  {{request.user}}</span>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Seleccionar nivel</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Fácil</a></li>
+              <li><a class="dropdown-item" href="#">Intermedio</a></li>
+              <li><a class="dropdown-item" href="#">Dificil</a></li>
+              
+              
+            </ul>
+          </li>
         </div>
       </nav>
     {% block body %}
