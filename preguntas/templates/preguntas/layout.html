@@ -1,28 +1,21 @@
 {% load static %}
-<!DOCTYPE html>
+
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     
     <title>Proyecto Informatorio 2021</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+   
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="{%static 'css/estilos.css'%}">
+
 </head>
 <body>
     <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
         <div class="container-fluid">
           <span class="navbar-brand mb-0 h1">InfoPro2021-Bienvenid@  {{request.user}}</span>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Seleccionar nivel</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Fácil</a></li>
-              <li><a class="dropdown-item" href="#">Intermedio</a></li>
-              <li><a class="dropdown-item" href="#">Dificil</a></li>
-              
-              
-            </ul>
-          </li>
+          
         </div>
       </nav>
     {% block body %}

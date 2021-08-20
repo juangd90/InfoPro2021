@@ -1,4 +1,5 @@
 {% extends "preguntas/layout.html"%}
+{% load static %}
 {% block body %}
 <div class="container">
 <h1>Probando index</h1>
@@ -6,12 +7,15 @@
     <p>
         Aca se debe explicar al usuario en que consiste el juego, se supone que al ver esta pantalla,el usuario ya va a estar logueado
         
-        
+    </h2>
     </p>
     <p>
-        <a href="{% url 'jugar'%}"">Vamos a jugar!</a>
-    </p> 
-</h2>
+        <button type="button" class="btn btn-success btn-lg"><a class="opciones" href="{% url 'jugar' 1%}">Nivel 1</a></button>
+        <button type="button"  class="btn btn-warning btn-lg "> <a class="opciones" href="{% url 'jugar' 2%}">Nivel 2</a></button>
+        <button type="button" class="btn btn-danger btn-lg" ><a class="opciones" href="{% url 'jugar' 3%}">Nivel 3</a></button>
+       
+    </p>
+
 
 </div>
 {% endblock %}

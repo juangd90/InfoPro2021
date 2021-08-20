@@ -8,24 +8,21 @@ from django.http.response import HttpResponseRedirect
 
 # Create your views here.
 @login_required(login_url='login')
-def index(request):
-    if request.method=='POST':
-        nivel=request.POST.get('Dificultad')
-        return render(request,"preguntas/jugar.html",{
-           'nivel':nivel,
-           
-        })
-    else:
-        return render(request,'preguntas/index.html')
-def jugar(request):
+def index(request):   
+    
+    return render(request,'preguntas/index.html')
+def jugar(request,dificultad):
     if not request.user.is_authenticated: #controla que este logueado el usuario, sino lo manda al login
         return redirect('login')
-    
+    else:       
         
         #aca va la logica del juego, por ej mandar al usuario las preguntas, y preguntar si desea continuar o quiere salir del juego. En cualquier caso se debe calcular el puntaje y mostrar por pantalla. Para manejar las preguntas se podria utilizar un for
-    else:
-        if request.method=='POST':
-            preguntas=Pregunta.objects.all()
+    
+        
+        if request.method=='POST': 
+            #filtra solamente las preguntas con la dificuultad que recibe como parametro           
+            preguntas=Pregunta.objects.filter(dificultad=dificultad)
+            
             puntaje=0
             correcta=0
             incorrecta=0
@@ -38,13 +35,19 @@ def jugar(request):
             contexto={
                 'puntaje':puntaje,
                 'correcta':correcta,
-                'incorrecta':incorrecta
+                'incorrecta':incorrecta,
+                
             }
             return render(request,'preguntas/resultados.html',contexto)
         else:
+            nivel=request.POST.get('nivel')
             preguntas=Pregunta.objects.all()
             return render(request,'preguntas/jugar.html',{
-                'preguntas':preguntas
+                
+                'preguntas':preguntas,
+                'nivel':dificultad
+                
+
             })                 
 
 
