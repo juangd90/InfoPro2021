@@ -16,14 +16,15 @@
     {% endif %}
 
 
-   <h2>
-    Su puntaje obtenido en esta pregunta es: {{puntaje}} <br>
+  
+   
     
     {% if contador <= 3 %}
     <p><a href="{%url 'jugar' nivel contador %}">Continuar jugando!</a></p>
    
    {% else %}
-    <h2>Ha llegado al final del juego. Su puntuación máxima es {{puntaje_total}}
+    <h2> <p>Ha llegado al final del juego. Su puntuación en esta oportunidad es: {{puntaje_juego}}</p> 
+        <p>Su puntaje máximo en todo el juego es: {{puntaje_total}}</p>
         <p>
             <a href="{% url 'index' %}">ir a inicio</a>
         </p>

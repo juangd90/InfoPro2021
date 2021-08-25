@@ -9,7 +9,8 @@ from django.http.response import HttpResponseRedirect
 # Create your views here.
 @login_required(login_url='login')
 def index(request):   
-    
+    jugador,created=Jugador.objects.get_or_create(nombre=request.user)
+    jugador.resetearPuntaje()
     return render(request,'preguntas/index.html')
 def jugar(request,dificultad,orden):
     if not request.user.is_authenticated: #controla que este logueado el usuario, sino lo manda al login
@@ -17,7 +18,7 @@ def jugar(request,dificultad,orden):
     else:       
         
         #aca va la logica del juego, por ej mandar al usuario las preguntas, y preguntar si desea continuar o quiere salir del juego. En cualquier caso se debe calcular el puntaje y mostrar por pantalla. Para manejar las preguntas se podria utilizar un for
-    
+        
         jugador,created=Jugador.objects.get_or_create(nombre=request.user)
         if request.method=='POST': 
             #filtra solamente las preguntas con la dificuultad que recibe como parametro           
@@ -37,15 +38,19 @@ def jugar(request,dificultad,orden):
                    
                 else:
                     correcta=p.correcta
-                    
-            jugador.calcularPuntaje(puntaje)
-            puntaje_total=jugador.puntaje    
+                
+            jugador.acumularPuntaje(puntaje)            
+            puntaje_juego=jugador.puntaje
+            jugador.calcularPuntaje(jugador.puntaje)
+            puntaje_total=jugador.puntaje_maximo
+            #puntaje_total=jugador.puntaje    
             contexto={
                 'puntaje':puntaje,
                 'correcta':correcta,
                 'respuesta':respuesta,                
                 'contador':contador,
                 'nivel':dificultad,
+                'puntaje_juego':puntaje_juego,
                 'puntaje_total':puntaje_total
                 
             }

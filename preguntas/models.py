@@ -31,13 +31,19 @@ class Jugador(models.Model):
     nombre=models.CharField(max_length=64)
     apellido=models.CharField(max_length=64)
     puntaje=models.IntegerField(default=0)
+    puntaje_maximo=models.IntegerField(default=0)
 
     def calcularPuntaje(self,puntaje):
-        if puntaje>self.puntaje:
-            self.puntaje=puntaje
+        if puntaje>self.puntaje_maximo:
+            self.puntaje_maximo=puntaje
             self.save()
-
+    def acumularPuntaje(self,puntaje):
+        self.puntaje+=puntaje
+        self.save()
     
+    def resetearPuntaje(self):
+        self.puntaje=0
+        self.save()
 
     
 
