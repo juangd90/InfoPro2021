@@ -1,4 +1,4 @@
-from preguntas.models import Pregunta
+from preguntas.models import Pregunta,Jugador
 from django.shortcuts import render,redirect
 from django.contrib.auth import login,logout,authenticate
 from .forms import Usuario
@@ -11,41 +11,54 @@ from django.http.response import HttpResponseRedirect
 def index(request):   
     
     return render(request,'preguntas/index.html')
-def jugar(request,dificultad):
+def jugar(request,dificultad,orden):
     if not request.user.is_authenticated: #controla que este logueado el usuario, sino lo manda al login
         return redirect('login')
     else:       
         
         #aca va la logica del juego, por ej mandar al usuario las preguntas, y preguntar si desea continuar o quiere salir del juego. En cualquier caso se debe calcular el puntaje y mostrar por pantalla. Para manejar las preguntas se podria utilizar un for
     
-        
+        jugador,created=Jugador.objects.get_or_create(nombre=request.user)
         if request.method=='POST': 
             #filtra solamente las preguntas con la dificuultad que recibe como parametro           
-            preguntas=Pregunta.objects.filter(dificultad=dificultad)
-            
+            preguntas=Pregunta.objects.filter(dificultad=dificultad,orden=orden)
+            contador=orden+1
             puntaje=0
-            correcta=0
-            incorrecta=0
+
+            respuesta=None
+            correcta=None
             for p in preguntas:
+                
                 if p.correcta==request.POST.get(p.pregunta):
-                    correcta+=1
+                    respuesta=request.POST.get(p.pregunta)
                     puntaje=puntaje+p.dificultad
+                    
+                    
+                   
                 else:
-                    incorrecta+=1
+                    correcta=p.correcta
+                    
+            jugador.calcularPuntaje(puntaje)
+            puntaje_total=jugador.puntaje    
             contexto={
                 'puntaje':puntaje,
                 'correcta':correcta,
-                'incorrecta':incorrecta,
+                'respuesta':respuesta,                
+                'contador':contador,
+                'nivel':dificultad,
+                'puntaje_total':puntaje_total
                 
             }
+            
             return render(request,'preguntas/resultados.html',contexto)
         else:
-            nivel=request.POST.get('nivel')
+            
             preguntas=Pregunta.objects.all()
             return render(request,'preguntas/jugar.html',{
                 
                 'preguntas':preguntas,
-                'nivel':dificultad
+                'nivel':dificultad,
+                'orden':orden,
                 
 
             })                 
