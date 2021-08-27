@@ -1,0 +1,35 @@
+{% extends "preguntas/layout.html" %}
+{% load static %}
+{% block body %}
+<div class="container" >
+   
+    {% if puntaje != 0 %}
+    <div class="alert alert-success" role="alert">
+        Correcto!! <i class="fa fa-smile-o" aria-hidden="true"></i> <br>
+        La respuesta es {{respuesta}} !!!
+      </div>
+    {% else %}
+    <div class="alert alert-danger" role="alert">
+       Incorrecto! <i class="fa fa-frown-o" aria-hidden="true"></i> <br>
+       La respuesta correcta era {{correcta}}
+      </div>
+    {% endif %}
+
+
+  
+   
+    
+    {% if contador <= 3 %}
+    <p><a href="{%url 'jugar_categoria' categoria contador %}">Continuar jugando!</a></p>
+   
+   {% else %}
+    <h2> <p>Ha llegado al final del juego. Su puntuación en esta oportunidad es: {{puntaje_juego}}</p> 
+        <p>Su puntaje máximo en todo el juego es: {{puntaje_total}}</p>
+        <p>
+            <a href="{% url 'index' %}">ir a inicio</a>
+        </p>
+    </h2>
+    {% endif %}
+</div>
+
+{% endblock %}
