@@ -20,13 +20,13 @@
    
     
     {% if contador <= 3 %}
-    <p><a href="{%url 'jugar' nivel contador %}">Continuar jugando!</a></p>
+    <p><a href="{%url 'jugar' nivel contador %} " class="main-button-slider">Continuar jugando!</a></p>
    
    {% else %}
     <h2> <p>Ha llegado al final del juego. Su puntuación en esta oportunidad es: {{puntaje_juego}}</p> 
         <p>Su puntaje máximo en todo el juego es: {{puntaje_total}}</p>
         <p>
-            <a href="{% url 'index' %}">ir a inicio</a>
+            <a href="{% url 'index' %}" class="main-button-slider">ir a inicio</a>
         </p>
     </h2>
     {% endif %}

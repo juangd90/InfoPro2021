@@ -1,9 +1,9 @@
 {% extends "preguntas/layout.html" %}
 
 {% block body %}
-<div class="container" >
+
 <div>
-    <form method="POST">
+    <form style="padding-top: 100px;" method="POST">
 {% csrf_token %}
 
 {% for campo in form %}
@@ -18,5 +18,5 @@
 </div>
 
 
-</div>
+
 {% endblock %}
