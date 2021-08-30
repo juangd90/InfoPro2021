@@ -19,7 +19,7 @@
     </p>
     
     <p>
-        <a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Jugar por niveles</a>
+        <a class="btn btn-primary" style="color: white;" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Jugar por niveles</a>
         <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Jugar por categoria</button>
         
       </p>
@@ -28,8 +28,8 @@
           <div class="collapse multi-collapse" id="multiCollapseExample1">
             <div class="card card-body">
                 <button type="button" class="btn btn-success btn-lg"><a class="opciones" style="color: white;" href="{% url 'jugar' 1 1%}">Nivel 1</a></button>
-                <button type="button"  class="btn btn-warning btn-lg "> <a class="opciones"style="color: black; href="{% url 'jugar' 2 1%}">Nivel 2</a></button>
-                <button type="button" class="btn btn-danger btn-lg" ><a class="opciones"style="color: white; href="{% url 'jugar' 3 1%}">Nivel 3</a></button>
+                <button type="button"  class="btn btn-warning btn-lg "> <a class="opciones"style="color: black;"" href="{% url 'jugar' 2 1%}">Nivel 2</a></button>
+                <button type="button" class="btn btn-danger btn-lg" ><a class="opciones"style="color: white;" href="{% url 'jugar' 3 1%}">Nivel 3</a></button>
             </div>
           </div>
         </div>
@@ -45,5 +45,5 @@
           </div>
         </div>
       </div>
-</div>
+</div> 
 {% endblock %}

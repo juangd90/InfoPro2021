@@ -24,6 +24,7 @@ urlpatterns = [
     path("login/",views.login_user,name="login"),
     path('jugar/<int:dificultad>/<int:orden>/',views.jugar,name="jugar"),
     path('jugar_categoria/<str:categoria>/<int:orden>/',views.jugarCategoria,name="jugar_categoria"),
-    path('loguout_user',views.logout_user,name="logout_user")
+    path('loguout_user',views.logout_user,name="logout_user"),
+    path('tablero/',views.tablero,name="tablero")
 
 ]

@@ -148,5 +148,12 @@ def logout_user(request):
     logout(request)
     return redirect('index')   
 
+def tablero(request):
+    total_usuarios=Jugador.objects.order_by('-puntaje_maximo')[:10]
+    contador=total_usuarios.count()
+    return render(request,'preguntas/tablero.html',{
+        'total_usuarios':total_usuarios,
+        'contador':contador,
+    })
 
              
