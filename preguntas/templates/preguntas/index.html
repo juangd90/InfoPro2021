@@ -21,29 +21,29 @@
     </p>
     
     <p>
-        <a class="btn btn-primary" style="color: white;" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Jugar por niveles</a>
-        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Jugar por categoria</button>
+      <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Jugar por categorias</button>
+		<button class="btn btn-primary" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2">Jugar por niveles</button>
         
       </p>
       <div class="row">
         <div class="col">
-          <div class="collapse multi-collapse" id="multiCollapseExample1">
+          <div class="collapse multi-collapse" id="multiCollapseExample2">
             <div class="card card-body">
-                <button type="button" class="btn btn-success btn-lg"><a class="opciones" style="color: white;" href="{% url 'jugar' 1 1%}">Nivel 1</a></button>
-                <button type="button"  class="btn btn-warning btn-lg "> <a class="opciones"style="color: black;"" href="{% url 'jugar' 2 1%}">Nivel 2</a></button>
-                <button type="button" class="btn btn-danger btn-lg" ><a class="opciones"style="color: white;" href="{% url 'jugar' 3 1%}">Nivel 3</a></button>
-            </div>
+              <button type="button" class="btn btn-secondary btn-lg"><a class="opciones" style="color: white;" href="{% url 'jugar_categoria' "Politica" 1%}">Politica</a></button>
+              <button type="button"  class="btn btn-info btn-lg "> <a class="opciones" style="color: white "href="{% url 'jugar_categoria' "Historia"  1%}">Historia</a></button>
+              <button type="button" class="btn btn-ligth btn-lg" ><a class="opciones" style="color: black;"  href="{% url 'jugar_categoria' "Cultura" 1%}">Cultura</a></button>
+              <button type="button" class="btn btn-success btn-lg"><a class="opciones" style="color: white;" href="{% url 'jugar_categoria' "Naturaleza" 1%}">Naturaleza</a></button>
+              <button type="button" class="btn btn-danger btn-lg" ><a class="opciones"style="color: white;" href="{% url 'jugar_categoria' "Geografia" 1%}">Geografia</a></button>
+          </div>
           </div>
         </div>
         <div class="col">
-          <div class="collapse multi-collapse" id="multiCollapseExample2">
+          <div class="collapse multi-collapse" id="multiCollapseExample3">
             <div class="card card-body">
-                <button type="button" class="btn btn-secondary btn-lg"><a class="opciones" style="color: white;" href="{% url 'jugar_categoria' "Politica" 1%}">Politica</a></button>
-                <button type="button"  class="btn btn-info btn-lg "> <a class="opciones" style="color: white "href="{% url 'jugar_categoria' "Historia"  1%}">Historia</a></button>
-                <button type="button" class="btn btn-ligth btn-lg" ><a class="opciones" style="color: black;"  href="{% url 'jugar_categoria' "Cultura" 1%}">Cultura</a></button>
-                <button type="button" class="btn btn-success btn-lg"><a class="opciones" style="color: white;" href="{% url 'jugar_categoria' "Naturaleza" 1%}">Naturaleza</a></button>
-                <button type="button" class="btn btn-danger btn-lg" ><a class="opciones"style="color: white;" href="{% url 'jugar_categoria' "Geografia" 1%}">Geografia</a></button>
-            </div>
+              <button type="button" class="btn btn-success btn-lg"><a class="opciones" style="color: white;" href="{% url 'jugar' 1 1%}">Nivel 1</a></button>
+              <button type="button"  class="btn btn-warning btn-lg "> <a class="opciones"style="color: black;"" href="{% url 'jugar' 2 1%}">Nivel 2</a></button>
+              <button type="button" class="btn btn-danger btn-lg" ><a class="opciones"style="color: white;" href="{% url 'jugar' 3 1%}">Nivel 3</a></button>
+          </div>
           </div>
         </div>
       </div>

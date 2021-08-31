@@ -1,21 +1,18 @@
 {% extends "preguntas/layout.html" %}
-
+{% load crispy_forms_tags %} 
 {% block body %}
 
-<div>
-    <form style="padding-top: 100px;" method="POST">
+<div class="container" style="padding-top: 150px;">
+    <form  method="POST">
 {% csrf_token %}
+{{form|crispy}}
+    
 
-{% for campo in form %}
-<p>
-    {{ campo.label_tag }}<br>
-    {{campo}}
-</p>
 
-{% endfor %}
 <button class="btn btn-primary" type="submit">Confirmar registro</button>
 </form>
 </div>
+
 
 
 

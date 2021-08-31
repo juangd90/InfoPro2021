@@ -21,7 +21,7 @@ def jugar(request,dificultad,orden):
         #aca va la logica del juego, por ej mandar al usuario las preguntas, y preguntar si desea continuar o quiere salir del juego. En cualquier caso se debe calcular el puntaje y mostrar por pantalla. Para manejar las preguntas se podria utilizar un for
         
         jugador,created=Jugador.objects.get_or_create(nombre=request.user)
-        jugador.resetearPuntaje()
+        
         if request.method=='POST': 
             #filtra solamente las preguntas con la dificuultad que recibe como parametro           
             preguntas=Pregunta.objects.filter(dificultad=dificultad,orden=orden)
@@ -73,7 +73,7 @@ def jugarCategoria(request,categoria,orden):
         #aca va la logica del juego, por ej mandar al usuario las preguntas, y preguntar si desea continuar o quiere salir del juego. En cualquier caso se debe calcular el puntaje y mostrar por pantalla. Para manejar las preguntas se podria utilizar un for
         
         jugador,created=Jugador.objects.get_or_create(nombre=request.user)
-        jugador.resetearPuntaje()
+        
         if request.method=='POST': 
             #filtra solamente las preguntas con la dificuultad que recibe como parametro           
             preguntas=PreguntaCategoria.objects.filter(categoria=categoria,orden=orden)
