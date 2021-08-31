@@ -137,8 +137,10 @@ def login_user(request):
         username=request.POST.get('username')
         password=request.POST.get('password')
         usuario=authenticate(request,username=username,password=password)
+        
         if usuario is not None:
             login(request,usuario)
+            
             return HttpResponseRedirect('/')
         else:
             messages.error(request,"Error")    

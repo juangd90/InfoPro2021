@@ -48,7 +48,7 @@ class PreguntaCategoria(models.Model):
       
 class Jugador(models.Model):
     nombre=models.CharField(max_length=64)
-    apellido=models.CharField(max_length=64)
+    
     puntaje=models.IntegerField(default=0)
     puntaje_maximo=models.IntegerField(default=0)
 
