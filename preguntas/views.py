@@ -160,4 +160,5 @@ def tablero(request):
         'contador':contador,
     })
 
-             
+def handler500(request):
+    return render(request,'preguntas/index.html')             

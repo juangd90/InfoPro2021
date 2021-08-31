@@ -67,7 +67,7 @@ class Jugador(models.Model):
     
 
     def __str__(self):
-        return f"({self.nombre} {self.apellido}) {self.puntaje} "
+        return f"({self.nombre})  {self.puntaje} "
 
    #en la clase pregunta solamente lo relacionado a las preguntas
    #con la clase jugador podemos manejar la info basica del mismo, y guardar su puntaje

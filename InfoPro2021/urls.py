@@ -13,6 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path
 from preguntas import views
@@ -28,3 +29,4 @@ urlpatterns = [
     path('tablero/',views.tablero,name="tablero")
 
 ]
+handler500='preguntas.views.handler500'
