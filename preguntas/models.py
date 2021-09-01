@@ -38,9 +38,7 @@ class PreguntaCategoria(models.Model):
     dificultad=models.IntegerField(default=1)
     orden=models.IntegerField(default=1)
 
-    def copiarPregunta(self,pregunta):
-        self.pregunta=pregunta
-        self.save()
+    
 
     def __str__(self):
       return f"({self.pregunta}- {self.categoria}-{self.orden})"

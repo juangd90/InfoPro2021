@@ -16,10 +16,11 @@
 
 	<table class="table table-striped table-bodered">
 		<thead>
-			<tr>
+			<tr style="align-items: center;">
 				<th>Posicion</th>
 				<th>Usuario</th>
 				<th>Puntaje</th>
+				<th>Compartir</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -28,10 +29,14 @@
 					<th>{{forloop.counter}}</th>
 					<th>{{jugador.nombre}}</th>
 					<th>{{jugador.puntaje_maximo}}</th>
+					<th><a href="https://api.whatsapp.com/send?text=Mira mi puntaje! {{jugador.puntaje_maximo}} " style="color: white;"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></th>
 				</tr>
 			{% endfor %}
 		</tbody>
 	</table>
+	<i class="fa fa-facebook-official" aria-hidden="true"></i>
+	<a href="https://www.facebook.com/sharer/sharer.php?u=http%3A//127.0.0.1%3A8000/tablero/" style="color: white;">Compartir mi puntaje!</a> <br>
+	
 	
 
 	
