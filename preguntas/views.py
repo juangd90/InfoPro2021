@@ -1,3 +1,4 @@
+from django.contrib.messages.api import MessageFailure
 from preguntas.models import Pregunta,Jugador,PreguntaCategoria
 from django.shortcuts import render,redirect
 from django.contrib.auth import login,logout,authenticate
@@ -124,6 +125,8 @@ def registro(request):
         if form.is_valid():
             form.save()
             return HttpResponseRedirect(reverse('login'))
+
+        messages.error(request, "Error en el registro, por favor verifique los datos ingresados")  
         
     form=Usuario()
     return render(request,'preguntas/registro.html',{
@@ -143,7 +146,7 @@ def login_user(request):
             
             return HttpResponseRedirect('/')
         else:
-            messages.error(request,"Error")    
+            messages.error(request,"Error de usuario o contraseña")    
     return render(request,'preguntas/login.html',{
 
         })

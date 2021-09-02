@@ -4,6 +4,9 @@
 
 
 <div class="formulario" style="padding-top: 100px; position:inherit;">
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
 <form method="POST" action="{% url 'login' %}">
     {% csrf_token %}
     
